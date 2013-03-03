@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+
+<p>Hello World. The current day and time is {{current_time|date:"DATETIME_FORMAT"}}.</p>
+
+
+
+<p>
+  <small>This line of text is meant to be treated as fine print.</small>
+</p>
+
+<strong>rendered as bold text</strong>
+
+<em>rendered as italicized text</em>
+
+
+
+{% endblock %}
+
+
+
+    

@@ -1,0 +1,45 @@
+usage: dotcloud [-h] [--application APPLICATION] [--debug] [--version]
+                
+                {setup,check,list,connect,disconnect,create,destroy,app,activity,info,url,status,open,run,ssh,push,deploy,dlist,dlogs,logs,env,scale,restart,domain,revisions,upgrade}
+                ...
+
+dotcloud CLI
+
+positional arguments:
+  {setup,check,list,connect,disconnect,create,destroy,app,activity,info,url,status,open,run,ssh,push,deploy,dlist,dlogs,logs,env,scale,restart,domain,revisions,upgrade}
+    setup               Setup the client authentication
+    check               Check the installation and authentication
+    list                List all applications
+    connect             Connect a local directory to an existing application
+    disconnect          Disconnect the current directory from its application
+    create              Create a new application
+    destroy             Destroy an existing app
+    app                 Display the application name connected to the current
+                        directory
+    activity            Display your recent activity
+    info                Get information about the application or service
+    url                 Display the URL(s) for the application
+    status              Probe the status of a service
+    open                Open the application in the browser
+    run                 Open a shell or run a command inside a service
+                        instance
+    ssh                 DEPRECATED. Use "dotcloud run"
+    push                Push the code
+    deploy              Deploy a specific version
+    dlist               List recent deployments
+    dlogs               Review past deployments or watch one in-flight
+    logs                View your application logs or watch logs live
+    env                 Manipulate application environment variables
+    scale               Scale services
+    restart             Restart a service instance
+    domain              Manage domains for the service
+    revisions           Display all the known revision of the application
+    upgrade             Upgrade a service to a new image revision
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --application APPLICATION, -A APPLICATION
+                        Specify the application
+  --debug, -D           Enable debug messages (same than "export
+                        DOTCLOUD_DEBUG=true")
+  --version, -v         show program's version number and exit
