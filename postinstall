@@ -1,7 +1,7 @@
 #!/bin/sh
 python createdb.py default
 python trainings/manage.py syncdb --noinput
-python traings/manage.py migrate
+python trainings/manage.py migrate
 python mkadmin.py
 mkdir -p /home/dotcloud/data/media /home/dotcloud/data/static
 python trainings/manage.py collectstatic --noinput
