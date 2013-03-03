@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Desired Training - {{ block.super}}{% endblock %}
+
+{% block main_content %}
+
+
+
+	<div class="hero-unit">
+        <h3>Find Training With Other Organizations</h3>
+        <p>Training going on in the community.</p>
+        
+      </div>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $('body').popover({
+            selector: '[data-toggle="popover"]'
+        });
+
+        $('body').tooltip({
+            selector: 'a[rel="tooltip"], [data-toggle="tooltip"]'
+        });
+    });
+</script>
+
+
+      <div class="bs-docs-example">
+            <div class="alert alert-info">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Tip:</strong> Need to fly someone from out of state to conduct a training, but can't afford it?  Post it here, then share the cost with others in the community.
+            </div>
+          </div>
+
+
+
+
+
+
+    {% if events %}
+
+    <div class="row">
+    	
+        {% for events in events %}
+   
+        		<div class="span4"> <div class="well">
+        			
+        <p><h4>{{ events.title|title }}</h4></p>
+         <p>{{ events.description }}</p>
+         <p>{{ events.audience }}</p>
+         <div class="btn btn-mini btn-primary" data-toggle="popover" data-placement="bottom" data-content="
+             {{ events.title|title }} 
+             {% if events.organization %} is needed by {{ events.organization }}{% endif %}.
+             {% if events.description %}  {{ events.description }}.{% endif %}
+             {% if events.fullfills %}  This is intended to fullfill the following requirements; {{ events.fullfills }}.{% endif %}
+             {% if events.audience %} This training is intended for; {{ events.audience }}.{% endif %}
+             {% if events.person %} If you are interested contact {{ events.person }}{% endif %}
+             {% if events.contact_email %} by email {{ events.contact_email }}{% endif %}
+             {% if events.contact_phone %} by phone {{ events.contact_phone }}{% endif %}.
+             ">details</div>
+     </div>
+          </div>
+        {% endfor %}
+         </div>
+        
+    {% else %}
+        <p>Nothing scheduled yet.</p>
+    {% endif %}
+
+
+     
+{% endblock %}

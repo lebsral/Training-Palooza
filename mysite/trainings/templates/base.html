@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{% block title %}Trainingpalooza{% endblock %}</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+<div class="container">
+
+   <div  class="navbar">
+    <div class="navbar-inner">
+        <div class="container">   
+    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </a>
+     
+        <!-- Be sure to leave the brand out there if you want it shown -->
+
+   <!-- Everything you want hidden at 940px or less, place within here -->
+       <div class="nav-collapse collapse">
+       <!-- .nav, .navbar-search, .navbar-form, etc -->
+
+    <ul  class="nav">
+    <li   class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    Training...
+    <b  class="caret"></b>
+    </a>
+    <ul  class="dropdown-menu">
+  <li><a href="{% url what_is_needed %}">we need</a></li>
+  <li><a href="{% url what_is_planned %}">planned by others</a></li>
+    <li><a href="{% url create_needed %}">add what we need</a></li>
+  <li><a href="{% url create_planned %}">add a planned event</a></li>
+    <li><a href="{% url what_was_offered %}">archive</a></li>
+
+   </ul>
+    </li>
+    </ul>
+    <ul  class="nav">
+    <li   class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    Account
+    <b  class="caret"></b>
+    </a>
+    <ul  class="dropdown-menu">
+    
+        {% if user.is_authenticated %}
+         <li>  <a href="{% url user_logout %}">Log out</a>   </li>
+  
+        {% else %}
+          <li><a href="{% url login %}">Log in</a></li>
+          <li><a href="{% url new_user_register %}">Register</a></li>
+
+        {% endif %}
+
+    </ul>
+    </li>
+    </ul>
+
+
+        <ul  class="nav">
+    <li   class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    Alaska - Homer
+    <b  class="caret"></b>
+    </a>
+    <ul  class="dropdown-menu">
+    
+       
+         <li>  Alaska - Homer</li>
+
+   
+
+    </ul>
+    </li>
+    </ul>
+
+
+       </div>
+      </div>
+   </div>
+  </div>
+
+{% if messages %}
+   <div class="bs-docs-example">
+   	{% for message in messages %}
+            <div class="alert alert-info">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+             {% if message.tags %} class="{{ message.tags }}"{% endif %}{{ message }}
+            </div>
+    {% endfor %}
+          </div>
+{% endif %}
+<div class="container">
+	{% block main_content %}{% endblock %}
+
+	{% block extra_body %}{% endblock %}
+
+   </div>
+</body>
+</html>

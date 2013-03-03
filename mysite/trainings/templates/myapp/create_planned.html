@@ -1,0 +1,12 @@
+ {% extends "base.html" %}
+
+ {% block title %}Create - {{ block.super}}{% endblock %}
+
+ {% block main_content %}
+ <form method="POST" action="">{% csrf_token %}
+  
+        {{ form.as_p }}
+    
+     <input type="submit" value="Create Event" />
+</form>
+ {% endblock %}

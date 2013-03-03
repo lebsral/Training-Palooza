@@ -6,7 +6,7 @@ dbuser=`grep DOTCLOUD_DB_MYSQL_LOGIN ~/environment.yml | cut -f2 -d' '`
 dbpass=`grep DOTCLOUD_DB_MYSQL_PASSWORD ~/environment.yml | cut -f2 -d' '`
 
 # this is the database we want to create
-dbname="Mysitedb"
+dbname="trainingsdb"
 
 #check if db exists
 echo "Creating a database for $dbname"
