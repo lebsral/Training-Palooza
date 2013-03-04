@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>{% block title %}Trainingpalooza{% endblock %}</title>
@@ -13,10 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
 
+
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+
 {% block extra_head %}{% endblock %}
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
 
    <div  class="navbar">
     <div class="navbar-inner">
@@ -41,11 +47,11 @@
     <b  class="caret"></b>
     </a>
     <ul  class="dropdown-menu">
-  <li><a href="{% url what_is_needed %}">we need</a></li>
-  <li><a href="{% url what_is_planned %}">planned by others</a></li>
-    <li><a href="{% url create_needed %}">add what we need</a></li>
-  <li><a href="{% url create_planned %}">add a planned event</a></li>
-    <li><a href="{% url what_was_offered %}">archive</a></li>
+  <li><a href="{% url what_is_needed %}">we need <i class="icon-tasks"></i></a></li>
+  <li><a href="{% url what_is_planned %}">planned by others <i class="icon-calendar"></i></a></li>
+    <li><a href="{% url create_needed %}">add what we need <i class="icon-pencil"></i><i class="icon-tasks"></i></a></li>
+  <li><a href="{% url create_planned %}">add a planned event <i class="icon-pencil"></i><i class="icon-calendar"></i></a></li>
+    <li><a href="{% url what_was_offered %}">archive <i class="icon-search"></i></a></li>
 
    </ul>
     </li>
@@ -100,7 +106,7 @@
     {% for message in messages %}
             <div class="alert alert-info">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
-             {% if message.tags %} class="{{ message.tags }}"{% endif %}{{ message }}
+             {{ message }}
             </div>
     {% endfor %}
           </div>

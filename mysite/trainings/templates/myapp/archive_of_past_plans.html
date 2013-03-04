@@ -46,11 +46,11 @@
    
                 <div class="span4"> <div class="well">
                     
-        <p><h4>{{ events.title|title }}</h4></p>
+        <p><h4>{{ events.title }}</h4></p>
          <p>{{ events.description }}</p>
          <p>{{ events.audience }}</p>
                     <div class="btn btn-mini btn-primary" data-toggle="popover" data-placement="btm" data-content="
-             {% if events.title %}<strong>Title: </strong>{{ events.title|title }}<br>{% endif %}
+             {% if events.title %}<strong>Title: </strong>{{ events.title }}<br>{% endif %}
              {% if events.date_class_starts %}<strong>Date Starts: </strong>{{ events.date_class_starts }}<br>{% endif %}
              {% if events.where %}<strong>Where: </strong>{{ events.where }}<br>{% endif %}
              {% if events.description %}<strong>Description: </strong>{{ events.description }}<br>{% endif %}

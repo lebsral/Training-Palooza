@@ -19,7 +19,7 @@ class ScheduledForm(forms.ModelForm):
     class Meta:
         model = TrainingScheduled
         fields = ('title', 'date_class_starts', 'where', 'description', 'fullfills',
-            'audience', 'cost', 'person', 'contact_email', 'contact_phone', 'location',)
+                'audience', 'cost', 'person', 'contact_email', 'contact_phone', 'location',)
 
 
 class WantedForm(forms.ModelForm):

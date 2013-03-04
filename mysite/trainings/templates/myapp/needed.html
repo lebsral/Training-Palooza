@@ -2,6 +2,26 @@
 
 {% block title %}Desired Training - {{ block.super}}{% endblock %}
 
+{% block extra_head %}
+
+ <script>
+$(function() {
+$( "#draggable" ).sortable({
+revert: true
+});
+$( "#draggable" ).draggable({
+connectToSortable: "#draggable",
+helper: "clone",
+revert: "invalid"
+});
+$( "ul, li" ).disableSelection();
+});
+</script>
+
+{% endblock %}
+
+
+
 {% block main_content %}
 
 
@@ -19,6 +39,7 @@
         $('body').popover({
             selector: '[data-toggle="popover"]',
             html : true,
+            placement: "bottom",
         });
 
         $('body').tooltip({
@@ -42,17 +63,19 @@
 
     {% if events %}
 
-    <div class="row">
+    <div class="row" id="draggable">
         
         {% for events in events %}
+
+        
    
-                <div class="span4"> <div class="well">
+             <div class="span4"> <div class="well well-small">
                     
-        <p><h4>{{ events.title|title }}</h4></p>
+        <p><h4>{{ events.title }}</h4></p>
          <p>{{ events.description }}</p>
          <p>{{ events.audience }}</p>
-         <div class="btn btn-mini btn-primary" data-toggle="popover" data-placement="btm" data-content="
-             {% if events.title %}<strong>Title: </strong>{{ events.title|title }}<br>{% endif %}
+         <div  class="btn btn-mini btn-primary" data-toggle="popover" data-placement="btm" data-content="
+             {% if events.title %}<strong>Title: </strong>{{ events.title }}<br>{% endif %}
              {% if events.organization %}<strong>Organization Needing: </strong>{{ events.organization }}<br>{% endif %}
              {% if events.description %}<strong>Description: </strong>{{ events.description }}<br>{% endif %}
              {% if events.fullfills %}<strong>Requirements To Be Met: </strong>{{ events.fullfills }}<br>{% endif %}
@@ -64,6 +87,8 @@
              ">details</div>
      </div>
           </div>
+
+
         {% endfor %}
          </div>
         
@@ -71,6 +96,10 @@
         <p>Nothing scheduled yet.</p>
     {% endif %}
 
-
+ <script>
+$(function() {
+$( "#draggable" ).draggable();
+});
+</script>
      
 {% endblock %}

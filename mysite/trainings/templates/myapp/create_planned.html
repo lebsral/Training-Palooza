@@ -2,10 +2,82 @@
 
  {% block title %}Create - {{ block.super}}{% endblock %}
 
+{% block extra_head %}
+<script>
+$(function() {
+var availableTags = [
+"Green Dot",
+"CPR",
+"First Aid",
+"HAZCOM Hazard Communication (MSDS)",
+"Title 10",
+"Workplace Violence",
+"SART",
+"Fire Extinguishers",
+"Bloodborne Pathogens",
+"Workplace Harassment",
+"Teambuilding",
+"Office Ergonomics",
+"Fair Labor Standards Act (FLSA)",
+"FMLA",
+"New Employee Orientation",
+"Workplace Privacy",
+"Sexual Harassment",
+"Stress Management",
+"Workers' Compensation",
+"Conflict Resolution",
+"Laboratory Safety Training",
+"PPE",
+"Stormwater Pollution Prevention",
+"Universal Waste Training - Large and Small Quantity Handlers",
+"Back Safety Training",
+"Handling Objections",
+"Setting Goals",
+"Pandemic Flu- How to Prevent and Respond",
+"Electrical Safety for Healthcare Workers",
+"Ergonomics for Healthcare Workers",
+"Respiratory Protection for Healthcare Workers",
+"Preventing Slips, Trips, and Falls for Healthcare Workers",
+"Violence Prevention for Healthcare and Social Service Workers",
+"Handling Medical Waste",
+"Lifting and Carrying Patients Best Practices",
+"HIPAA Privacy Laws",
+"Microsoft Access",
+"Microsoft Excel",
+"Microsoft Word",
+"Microsoft PowerPoint",
+"Grant Writing",
+"Budget Formulation",
+"Statistics",
+"Audits",
+"Grants Management",
+"Human Resource Development",
+"Agile Project Management",
+"Quickbooks",
+"Governance",
+"Customer Service",
+];
+$( "#id_title" ).autocomplete({
+source: availableTags
+});
+});
+</script>
+
+ <script>
+$(function() {
+$( "#id_date_class_starts" ).datepicker();
+});
+</script>
+{% endblock %}
+
 {% load crispy_forms_tags %}
  {% block main_content %}
 
 
+
+
+
 {% crispy form %}
+
 
  {% endblock %}
