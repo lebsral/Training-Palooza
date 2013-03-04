@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     'myapp',   # must do syncdb for south before uncommenting the first time?
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'crispy_forms',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
 )

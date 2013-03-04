@@ -97,7 +97,7 @@ def register(request):
         if form.is_valid():
             new_user = form.save(commit=False)
             new_user.save()
-            next = reverse('what_is_needed')
+            next = reverse('login')
             return HttpResponseRedirect(next)
     else:
         form = UserCreationForm()

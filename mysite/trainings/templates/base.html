@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>{% block title %}Trainingpalooza{% endblock %}</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -63,7 +63,7 @@
   
         {% else %}
           <li><a href="{% url login %}">Log in</a></li>
-          <li><a href="{% url new_user_register %}">Register</a></li>
+          <li><a href="{% url new_user_register %}">New Account</a></li>
 
         {% endif %}
 
@@ -97,7 +97,7 @@
 
 {% if messages %}
    <div class="bs-docs-example">
-   	{% for message in messages %}
+    {% for message in messages %}
             <div class="alert alert-info">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
              {% if message.tags %} class="{{ message.tags }}"{% endif %}{{ message }}
@@ -106,9 +106,9 @@
           </div>
 {% endif %}
 <div class="container">
-	{% block main_content %}{% endblock %}
+  {% block main_content %}{% endblock %}
 
-	{% block extra_body %}{% endblock %}
+  {% block extra_body %}{% endblock %}
 
    </div>
 </body>

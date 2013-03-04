@@ -3,4 +3,6 @@ South==0.7.6
 wsgiref==0.1.2
 django-social-auth==0.7.18
 django-tastypie==0.9.11
+django-crispy-forms==1.2.3
+
 

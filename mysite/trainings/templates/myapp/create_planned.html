@@ -2,11 +2,10 @@
 
  {% block title %}Create - {{ block.super}}{% endblock %}
 
+{% load crispy_forms_tags %}
  {% block main_content %}
- <form method="POST" action="">{% csrf_token %}
-  
-        {{ form.as_p }}
-    
-     <input type="submit" value="Create Event" />
-</form>
+
+
+{% crispy form %}
+
  {% endblock %}

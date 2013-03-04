@@ -6,7 +6,7 @@
 
 
 
-	<div class="hero-unit">
+    <div class="hero-unit">
         <h3>Find Training With Other Organizations</h3>
         <p>Training going on in the community.</p>
         
@@ -17,7 +17,8 @@
 <script type="text/javascript">
     $(function () {
         $('body').popover({
-            selector: '[data-toggle="popover"]'
+            selector: '[data-toggle="popover"]',
+            html : true,
         });
 
         $('body').tooltip({
@@ -42,23 +43,24 @@
     {% if events %}
 
     <div class="row">
-    	
+        
         {% for events in events %}
    
-        		<div class="span4"> <div class="well">
-        			
+                <div class="span4"> <div class="well">
+                    
         <p><h4>{{ events.title|title }}</h4></p>
          <p>{{ events.description }}</p>
          <p>{{ events.audience }}</p>
-         <div class="btn btn-mini btn-primary" data-toggle="popover" data-placement="bottom" data-content="
-             {{ events.title|title }} 
-             {% if events.organization %} is needed by {{ events.organization }}{% endif %}.
-             {% if events.description %}  {{ events.description }}.{% endif %}
-             {% if events.fullfills %}  This is intended to fullfill the following requirements; {{ events.fullfills }}.{% endif %}
-             {% if events.audience %} This training is intended for; {{ events.audience }}.{% endif %}
-             {% if events.person %} If you are interested contact {{ events.person }}{% endif %}
-             {% if events.contact_email %} by email {{ events.contact_email }}{% endif %}
-             {% if events.contact_phone %} by phone {{ events.contact_phone }}{% endif %}.
+         <div class="btn btn-mini btn-primary" data-toggle="popover" data-placement="btm" data-content="
+             {% if events.title %}<strong>Title: </strong>{{ events.title|title }}<br>{% endif %}
+             {% if events.organization %}<strong>Organization Needing: </strong>{{ events.organization }}<br>{% endif %}
+             {% if events.description %}<strong>Description: </strong>{{ events.description }}<br>{% endif %}
+             {% if events.fullfills %}<strong>Requirements To Be Met: </strong>{{ events.fullfills }}<br>{% endif %}
+             {% if events.audience %}<strong>Audience: </strong>{{ events.audience }}<br>{% endif %}
+             {% if events.cost %}<strong>Cost: </strong>{{ events.cost }}<br>{% endif %}
+             {% if events.person %}<strong>Contact: </strong>{{ events.person }}<br>{% endif %}
+             {% if events.contact_email %}<strong>Email: </strong>{{ events.contact_email }}<br>{% endif %}
+             {% if events.contact_phone %}<strong>Phone: </strong>{{ events.contact_phone }}<br>{% endif %}
              ">details</div>
      </div>
           </div>
