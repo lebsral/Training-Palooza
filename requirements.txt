@@ -5,4 +5,13 @@ django-social-auth==0.7.18
 django-tastypie==0.9.11
 django-crispy-forms==1.2.3
 
+argparse==1.2.1
+colorama==0.2.4
+httplib2==0.7.7
+oauth2==1.5.211
+python-openid==2.2.5
+requests==0.14.2
+wsgiref==0.1.2
+
+
 
