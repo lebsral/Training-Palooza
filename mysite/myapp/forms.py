@@ -14,7 +14,7 @@ class ScheduledForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.form_method = 'POST'
         self.helper.add_input(Submit('submit', 'Create Event'))
-        super(WantedForm, self).__init__(*args, **kwargs)
+        super(ScheduledForm, self).__init__(*args, **kwargs)
 
     class Meta:
         model = TrainingScheduled

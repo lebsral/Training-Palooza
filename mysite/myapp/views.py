@@ -10,9 +10,6 @@ from django.contrib.auth.decorators import login_required
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-
-
-
 def planned(request):
     now = datetime.now()
     events = TrainingScheduled.objects.filter(date_class_starts__gte=now.date()).order_by('date_class_starts')
