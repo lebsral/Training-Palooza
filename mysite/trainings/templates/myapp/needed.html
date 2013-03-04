@@ -4,19 +4,7 @@
 
 {% block extra_head %}
 
- <script>
-$(function() {
-$( "#draggable" ).sortable({
-revert: true
-});
-$( "#draggable" ).draggable({
-connectToSortable: "#draggable",
-helper: "clone",
-revert: "invalid"
-});
-$( "ul, li" ).disableSelection();
-});
-</script>
+
 
 {% endblock %}
 
@@ -48,6 +36,11 @@ $( "ul, li" ).disableSelection();
     });
 </script>
 
+<div class="row">
+<div class="span2">
+<a class="btn" type="button" href="{% url create_planned %}">ADD <i class="icon-pencil"></i><i class="icon-tasks"></i></a>
+
+     </div>
 
       <div class="bs-docs-example">
             <div class="alert alert-info">
@@ -57,6 +50,25 @@ $( "ul, li" ).disableSelection();
           </div>
 
 
+<div class="row">
+      <div class="bs-docs-example" >
+        <div class="span10">
+
+           {% if messages %}
+   <div class="bs-docs-example">
+    {% for message in messages %}
+            <div class="alert alert-info">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+             {{ message }}
+            </div>
+    {% endfor %}
+          </div>
+{% endif %}
+
+          </div>
+        </div>
+
+     </div>
 
 
 

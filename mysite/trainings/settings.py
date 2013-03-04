@@ -245,8 +245,3 @@ SOCIAL_AUTH_PIPELINE = (
     'app.pipeline.first_name',
 )
 
-# this is from the social auth example,  do we need it?
-try:
-    from local_settings import *
-except:
-    pass

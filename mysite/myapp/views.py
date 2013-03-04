@@ -10,9 +10,13 @@ from django.contrib.auth.decorators import login_required
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
+
 def planned(request):
     now = datetime.now()
     events = TrainingScheduled.objects.filter(date_class_starts__gte=now.date()).order_by('date_class_starts')
+   # messages.add_message(request, messages.SUCCESS, RANDOM_TIP)
+   # Random_Tip = 4
+    messages.add_message(request, messages.SUCCESS, "Tip: Doing a new employee training?  Invite outsiders. They gain insight into your organization at no cost to you.")
     context = {
         'events': events,
     }
@@ -25,6 +29,7 @@ def planned(request):
 
 def needed(request):
     events = TrainingDesired.objects.filter(visible=True).order_by('-creation_date')
+    messages.add_message(request, messages.SUCCESS, "Tip: Doing a new employee training?  Invite outsiders. They gain insight into your organization at no cost to you.")
     context = {
         'events': events,
     }
