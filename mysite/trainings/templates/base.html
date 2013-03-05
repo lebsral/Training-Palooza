@@ -67,10 +67,11 @@
     <ul  class="dropdown-menu">
     
         {% if user.is_authenticated %}
-         <li>  <a href="{% url user_logout %}">Log out</a>   </li>
+         <li>  <a href="{% url user_logout %}">Log Out</a>   </li>
+         
   
         {% else %}
-          <li><a href="{% url login %}">Log in</a></li>
+          <li><a href="{% url login %}">Log In</a></li>
           <li><a href="{% url new_user_register %}">New Account</a></li>
 
         {% endif %}

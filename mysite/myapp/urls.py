@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^register/$', views.register, name="new_user_register"),
     url(r'^accounts/logout/$', logout, name="user_logout"),
     url(r'^myapp/login/$', 'django.contrib.auth.views.login', name="login"),
+    url(r'^myapp/changeprofile/$', views.changeuser, name="change_profile"),
 )

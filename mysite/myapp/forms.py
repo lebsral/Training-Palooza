@@ -2,6 +2,7 @@ from django import forms
 from myapp.models import TrainingScheduled, TrainingDesired
 from crispy_forms.layout import Submit
 from crispy_forms.helper import FormHelper
+from django.contrib.auth.models import User
 
 
 class ScheduledForm(forms.ModelForm):
@@ -38,3 +39,18 @@ class WantedForm(forms.ModelForm):
         model = TrainingDesired
         fields = ('title', 'organization', 'description', 'fullfills',
             'audience', 'cost', 'person', 'contact_email', 'contact_phone', 'location',)
+
+
+class UserChangerForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_id = 'UserChangerForm'
+        self.helper.form_class = 'form-horizontal'
+        self.helper.form_method = 'POST'
+        self.helper.add_input(Submit('submit', 'Change Your User Information'))
+        super(UserChangerForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email',)
