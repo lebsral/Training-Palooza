@@ -8,7 +8,7 @@
 
 
 
-	<div class="hero-unit">
+    <div class="hero-unit">
         <h3>Share Training With Other Organizations</h3>
         <p>Scheduled training comming up in the community.</p>
         
@@ -63,16 +63,16 @@
     {% if events %}
 
    <div class="row" id="draggable">
-    	
+        
         {% for events in events %}
    
-        		<div class="span4"> <div class="well well-small">
-        			
+                <div class="span4"> <div class="well well-small">
+                    
         <p><h4>{{ events.title }}</h4></p>
          <p>{{ events.description }}</p>
          <p>{{ events.audience }}</p>
          <p>{{ events.date_class_starts }}</p>
-         
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
                     <div class="btn btn-mini btn-primary" data-toggle="popover" data-placement="btm" data-content="
              {% if events.title %}<strong>Title: </strong>{{ events.title }}<br>{% endif %}
              {% if events.date_class_starts %}<strong>Date Starts: </strong>{{ events.date_class_starts }}<br>{% endif %}

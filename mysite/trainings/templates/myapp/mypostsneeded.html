@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Desired Training - {{ block.super}}{% endblock %}
+{% block title %}My Posts of Training Needs - {{ block.super}}{% endblock %}
 
 
 
@@ -63,8 +63,8 @@
 
         <div class="row">
    
-        	 <div class="span12"> <div class="well well-small">
-        			
+             <div class="span12"> <div class="well well-small">
+                    
             {% if events.title %}<strong>Title: </strong>{{ events.title }}<br>{% endif %}
              {% if events.organization %}<strong>Organization Needing: </strong>{{ events.organization }}<br>{% endif %}
              {% if events.description %}<strong>Description: </strong>{{ events.description }}<br>{% endif %}
@@ -74,7 +74,7 @@
              {% if events.person %}<strong>Contact: </strong>{{ events.person }}<br>{% endif %}
              {% if events.contact_email %}<strong>Email: </strong>{{ events.contact_email }}<br>{% endif %}
              {% if events.contact_phone %}<strong>Phone: </strong>{{ events.contact_phone }}<br>{% endif %}
-         <div  class="btn btn-mini btn-primary" data-content="">D</div>
+      
 
      </div>
           </div>

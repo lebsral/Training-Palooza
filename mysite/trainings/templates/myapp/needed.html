@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Desired Training - {{ block.super}}{% endblock %}
+{% block title %}Needed Training - {{ block.super}}{% endblock %}
 
 
 
@@ -10,9 +10,9 @@
 
 
 
-	<div class="hero-unit">
+    <div class="hero-unit">
         <h3>Find Training With Other Organizations</h3>
-        <p>Training going on in the community.</p>
+        <p>Trainings needed in the community.</p>
         
       </div>
 
@@ -71,13 +71,13 @@
     {% if events %}
 
     <div class="row" id="draggable">
-    	
+        
         {% for events in events %}
 
         
    
-        	 <div class="span4"> <div class="well well-small">
-        			
+             <div class="span4"> <div class="well well-small">
+                    
         <p><h4>{{ events.title }}</h4></p>
          <p>{{ events.description }}</p>
          <p>{{ events.audience }}</p>
