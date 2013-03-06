@@ -2,19 +2,15 @@
 
 {% block title %}Planned Trainings - {{ block.super}}{% endblock %}
 
-{% block extra_head %}
 
-
-
-{% endblock %}
 
 {% block main_content %}
 
 
 
-    <div class="hero-unit">
+	<div class="hero-unit">
         <h3>Share Training With Other Organizations</h3>
-        <p>Scheduled training going on in the community.</p>
+        <p>Scheduled training comming up in the community.</p>
         
       </div>
 
@@ -33,23 +29,25 @@
         });
     });
 </script>
+
+
 <div class="row">
-<div class="span2">
+<div class="span2"> <div class="well well-small">
 <a class="btn" type="button" href="{% url create_planned %}">ADD <i class="icon-pencil"></i><i class="icon-calendar"></i></a>
 
      </div>
-
+</div>
 
 <div class="row">
       <div class="bs-docs-example" >
         <div class="span10">
 
-           {% if messages %}
+          {% if messages %}
    <div class="bs-docs-example">
     {% for message in messages %}
-            <div class="alert alert-info">
+            <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
               <button type="button" class="close" data-dismiss="alert">&times;</button>
-             {{ message }}
+             {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
             </div>
     {% endfor %}
           </div>
@@ -61,19 +59,20 @@
      </div>
 
 
-
+</div>
     {% if events %}
 
    <div class="row" id="draggable">
-        
+    	
         {% for events in events %}
    
-                <div class="span4"> <div class="well well-small">
-                    
+        		<div class="span4"> <div class="well well-small">
+        			
         <p><h4>{{ events.title }}</h4></p>
          <p>{{ events.description }}</p>
          <p>{{ events.audience }}</p>
          <p>{{ events.date_class_starts }}</p>
+         
                     <div class="btn btn-mini btn-primary" data-toggle="popover" data-placement="btm" data-content="
              {% if events.title %}<strong>Title: </strong>{{ events.title }}<br>{% endif %}
              {% if events.date_class_starts %}<strong>Date Starts: </strong>{{ events.date_class_starts }}<br>{% endif %}
@@ -94,7 +93,6 @@
     {% else %}
         <p>Nothing scheduled yet.</p>
     {% endif %}
-
 
        
 {% endblock %}

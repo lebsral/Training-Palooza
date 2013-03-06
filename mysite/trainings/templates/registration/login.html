@@ -2,6 +2,17 @@
 {% load url from future %}
 {% block main_content %}
 
+{% if messages %}
+   <div class="bs-docs-example">
+    {% for message in messages %}
+            <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+             {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+            </div>
+    {% endfor %}
+          </div>
+{% endif %}
+
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}

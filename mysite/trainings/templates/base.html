@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>{% block title %}Trainingpalooza{% endblock %}</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -49,10 +49,10 @@
     <b  class="caret"></b>
     </a>
     <ul  class="dropdown-menu">
-  <li><a href="{% url what_is_needed %}">we need <i class="icon-tasks"></i></a></li>
-  <li><a href="{% url what_is_planned %}">planned by others <i class="icon-calendar"></i></a></li>
-    <li><a href="{% url create_needed %}">add what we need <i class="icon-pencil"></i><i class="icon-tasks"></i></a></li>
-  <li><a href="{% url create_planned %}">add a planned event <i class="icon-pencil"></i><i class="icon-calendar"></i></a></li>
+  <li><a href="{% url what_is_needed %}">see trainings needed in the community <i class="icon-tasks"></i></a></li>
+  <li><a href="{% url what_is_planned %}">trainings already scheduled <i class="icon-calendar"></i></a></li>
+    <li><a href="{% url create_needed %}">add training we need/want <i class="icon-pencil"></i><i class="icon-tasks"></i></a></li>
+  <li><a href="{% url create_planned %}">add a scheduled training event <i class="icon-pencil"></i><i class="icon-calendar"></i></a></li>
     <li><a href="{% url what_was_offered %}">archive <i class="icon-search"></i></a></li>
 
    </ul>
@@ -68,6 +68,8 @@
     
         {% if user.is_authenticated %}
          <li>  <a href="{% url user_logout %}">Log Out</a>   </li>
+         <li>  <a href="{% url see_mypost_needed %}">See Only My Training Needs</a>   </li>
+         <li>  <a href="{% url see_mypost_scheduled %}">See Only My Scheduled Listings</a>   </li>
          
   
         {% else %}
@@ -106,10 +108,25 @@
 
 
 
-  {% block main_content %}{% endblock %}
+	{% block main_content %}{% endblock %}
 
-  {% block extra_body %}{% endblock %}
+	{% block extra_body %}{% endblock %}
 
    </div>
+
+
+   <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39035081-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>

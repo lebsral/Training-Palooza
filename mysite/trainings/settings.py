@@ -160,6 +160,9 @@ import random
 SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice(['Darth Vader', 'Obi-Wan Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])
 
 
+RANDOM_TIP = lambda: random.choice(["Tip: Doing a new employee training?  Invite outsiders. They gain insight into your organization at no cost to you.", "Tip: Need to fly someone from out of state to conduct a training, but can't afford it?  Post it here, then share the cost with others in the community.", "Tip: Spay or neuter your cats and dogs.", "Tip: Invite vendors to look at the training you have posted.  They can serve your needs best when they deeply understand you.", "Tip: Creating a free account is easy, and will let you edit and delete your posts at anytime.", ])
+
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

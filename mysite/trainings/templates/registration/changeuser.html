@@ -2,11 +2,7 @@
 
 {% block title %}Desired Training - {{ block.super}}{% endblock %}
 
-{% block extra_head %}
 
-
-
-{% endblock %}
 
 
 
@@ -50,9 +46,9 @@
            {% if messages %}
    <div class="bs-docs-example">
     {% for message in messages %}
-            <div class="alert alert-info">
+            <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
               <button type="button" class="close" data-dismiss="alert">&times;</button>
-             {{ message }}
+             {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
             </div>
     {% endfor %}
           </div>

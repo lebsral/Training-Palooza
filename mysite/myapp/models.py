@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models.query import QuerySet
 
 
+
 def today():
     now = datetime.now()
     start = datetime.min.replace(year=now.year, month=now.month,
@@ -58,7 +59,7 @@ class TrainingDesired(models.Model):
 
 class TrainingScheduled(models.Model):
     creator = models.ForeignKey(User)
-    date_class_starts = models.DateField(verbose_name="Date training starts", blank=True, null=True)
+    date_class_starts = models.DateField(verbose_name="Date training starts")
     where = models.CharField(verbose_name="Where training will be held", max_length=150, blank=True, null=True)
     title = models.CharField(verbose_name="Title of the training", max_length=200)
     creation_date = models.DateTimeField(default=datetime.now)

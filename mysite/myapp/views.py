@@ -9,14 +9,14 @@ from datetime import datetime
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
 
 def planned(request):
     now = datetime.now()
-    events = TrainingScheduled.objects.filter(date_class_starts__gte=now.date()).order_by('date_class_starts')
-   # messages.add_message(request, messages.SUCCESS, RANDOM_TIP)
-   # Random_Tip = 4
-    messages.add_message(request, messages.SUCCESS, "Tip: Doing a new employee training?  Invite outsiders. They gain insight into your organization at no cost to you.")
+    events = TrainingScheduled.objects.filter(date_class_starts__gte=now.date()).filter(visible=True).order_by('date_class_starts')
+    rt = settings.RANDOM_TIP()
+    messages.add_message(request, messages.INFO, rt)
     context = {
         'events': events,
     }
@@ -29,7 +29,8 @@ def planned(request):
 
 def needed(request):
     events = TrainingDesired.objects.filter(visible=True).order_by('-creation_date')
-   # messages.add_message(request, messages.SUCCESS, "Tip: Doing a new employee training?  Invite outsiders. They gain insight into your organization at no cost to you.")
+    rt = settings.RANDOM_TIP()
+    messages.add_message(request, messages.INFO, rt)
     context = {
         'events': events,
     }
@@ -45,7 +46,7 @@ def create_planned(request):
         z = 1
     else:
         msgtxt = 'You are not logged in.  Which is fine.  You can still post.  But, you will not be able to easily delete or edit your posts later.  ' + '<a href="' + reverse('login') + '">Log in</a>' + ' | ' + '<a href="' + reverse('new_user_register') + '">New Account</a>'
-        messages.add_message(request, messages.SUCCESS,  msgtxt, extra_tags='safe')
+        messages.add_message(request, messages.WARNING,  msgtxt, extra_tags='safe')
     form = ScheduledForm(request.POST or None)
     if form.is_valid():
         x = form.save(commit=False)
@@ -72,7 +73,7 @@ def create_needed(request):
         z = 1
     else:
         msgtxt = 'You are not logged in.  Which is fine.  You can still post.  But, you will not be able to easily delete or edit your posts later.  ' + '<a href="' + reverse('login') + '">Log in</a>' + ' | ' + '<a href="' + reverse('new_user_register') + '">New Account</a>'
-        messages.add_message(request, messages.SUCCESS,  msgtxt, extra_tags='safe')
+        messages.add_message(request, messages.WARNING,  msgtxt, extra_tags='safe')
     form = WantedForm(request.POST or None)
     if form.is_valid():
         x = form.save(commit=False)
@@ -96,7 +97,7 @@ def create_needed(request):
 
 def planned_archive(request):
     now = datetime.now()
-    events = TrainingScheduled.objects.filter(date_class_starts__lt=now.date()).order_by('date_class_starts')
+    events = TrainingScheduled.objects.filter(date_class_starts__lt=now.date()).filter(visible=True).order_by('date_class_starts')
     context = {
         'events': events,
     }
@@ -134,7 +135,7 @@ def changeuser(request):
             x.save()
             messages.add_message(request, messages.SUCCESS, 'Your user information was saved.')
         else:
-            messages.add_message(request, messages.SUCCESS, 'Your user information was not saved.')
+            messages.add_message(request, messages.ERROR, 'Your user information was not saved.')
         if 'next' in request.POST:
             next = request.POST['next']
         else:
@@ -146,3 +147,34 @@ def changeuser(request):
         context_instance=RequestContext(request),
     )
 
+
+@login_required
+def mypostsneeded(request):
+    me = request.user
+    events = TrainingDesired.objects.filter(visible=True).filter(creator=me).order_by('-creation_date')
+    rt = settings.RANDOM_TIP()
+    messages.add_message(request, messages.INFO, rt)
+    context = {
+        'events': events,
+    }
+    return render_to_response(
+        'myapp/mypostsneeded.html',
+        context,
+        context_instance=RequestContext(request),
+    )
+
+
+@login_required
+def mypostsscheduled(request):
+    me = request.user
+    events = TrainingScheduled.objects.filter(visible=True).filter(creator=me).order_by('-creation_date')
+    rt = settings.RANDOM_TIP()
+    messages.add_message(request, messages.INFO, rt)
+    context = {
+        'events': events,
+    }
+    return render_to_response(
+        'myapp/mypostsscheduled.html',
+        context,
+        context_instance=RequestContext(request),
+    )

@@ -13,4 +13,6 @@ urlpatterns = patterns('',
     url(r'^accounts/logout/$', logout, name="user_logout"),
     url(r'^myapp/login/$', 'django.contrib.auth.views.login', name="login"),
     url(r'^myapp/changeprofile/$', views.changeuser, name="change_profile"),
+    url(r'^myapp/mypostsneeded/$', views.mypostsneeded, name="see_mypost_needed"),
+    url(r'^myapp/mypostsscheduled/$', views.mypostsscheduled, name="see_mypost_scheduled"),
 )

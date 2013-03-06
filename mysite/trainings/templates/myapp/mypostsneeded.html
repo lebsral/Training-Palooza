@@ -10,11 +10,7 @@
 
 
 
-	<div class="hero-unit">
-        <h3>Find Training With Other Organizations</h3>
-        <p>Training going on in the community.</p>
-        
-      </div>
+
 
 
 
@@ -35,16 +31,12 @@
 
 
 
-<div class="row">
-<div class="span2"> <div class="well well-small">
-<a class="btn" type="button" href="{% url create_needed %}">ADD <i class="icon-pencil"></i><i class="icon-tasks"></i></a>
 
-     </div>
-</div>
+
 
 <div class="row">
       <div class="bs-docs-example" >
-        <div class="span10">
+        <div class="span12">
 
            {% if messages %}
    <div class="bs-docs-example">
@@ -60,29 +52,20 @@
           </div>
         </div>
 
-     </div>
 
-
-</div>
 
 
 
 
     {% if events %}
 
-    <div class="row" id="draggable">
-    	
         {% for events in events %}
 
-        
+        <div class="row">
    
-        	 <div class="span4"> <div class="well well-small">
+        	 <div class="span12"> <div class="well well-small">
         			
-        <p><h4>{{ events.title }}</h4></p>
-         <p>{{ events.description }}</p>
-         <p>{{ events.audience }}</p>
-         <div  class="btn btn-mini btn-primary" data-toggle="popover" data-placement="btm" data-content="
-             {% if events.title %}<strong>Title: </strong>{{ events.title }}<br>{% endif %}
+            {% if events.title %}<strong>Title: </strong>{{ events.title }}<br>{% endif %}
              {% if events.organization %}<strong>Organization Needing: </strong>{{ events.organization }}<br>{% endif %}
              {% if events.description %}<strong>Description: </strong>{{ events.description }}<br>{% endif %}
              {% if events.fullfills %}<strong>Requirements To Be Met: </strong>{{ events.fullfills }}<br>{% endif %}
@@ -91,18 +74,17 @@
              {% if events.person %}<strong>Contact: </strong>{{ events.person }}<br>{% endif %}
              {% if events.contact_email %}<strong>Email: </strong>{{ events.contact_email }}<br>{% endif %}
              {% if events.contact_phone %}<strong>Phone: </strong>{{ events.contact_phone }}<br>{% endif %}
-             ">details</div>
+         <div  class="btn btn-mini btn-primary" data-content="">D</div>
+
      </div>
           </div>
 
-
+</div>
         {% endfor %}
-         </div>
-        
+         
     {% else %}
-        <p>Nothing scheduled yet.</p>
+        <p>Nothing here yet.</p>
     {% endif %}
-
 
 
      
