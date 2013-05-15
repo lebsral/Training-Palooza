@@ -153,8 +153,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-GITHUB_APP_ID = '75f48bc0510761d4acfa'
-GITHUB_API_SECRET = '485ae2a43041944952d5892e738a1e737980b45a'
+
 
 import random
 SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice(['Darth Vader', 'Obi-Wan Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])
